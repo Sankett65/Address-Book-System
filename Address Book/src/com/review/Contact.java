@@ -1,13 +1,12 @@
 package com.review;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Contact {
-//    first and last names, address,
+    //    first and last names, address,
 //    city, state, zip, phone number and
 //    email...
-     private String firstName;
+    private String firstName;
     private String LastName;
     private  String address;
     private  int zip;
@@ -21,9 +20,6 @@ public class Contact {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
-    }
-
-    public Contact() {
     }
 
     public String getFirstName() {
@@ -85,30 +81,42 @@ public class Contact {
                 ", email='" + email + '\'' +
                 '}';
     }
-
-
 }
 
-class AdressBook {
+class AdressBook{
+    ArrayList<Contact> list = new ArrayList<>();
+    public void addContact(Contact contact){
+        list.add(contact);
+    }
+
+    public void setList(ArrayList<Contact> list) {
+        this.list = list;
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Adress Book System.\n");
-        ArrayList<Contact> list = new ArrayList<>();
-       Contact c = new Contact("Sanket","Jadhav","Dadar",400028,35426,"sanket@gmail.com");
-        list.add(c);
+        AdressBook a = new AdressBook();
+        Contact c = new Contact("Sanket","Jadhav","Dadar",400028,35426,"sanket@gmail.com");
+        a.list.add(c);
         Contact c1 = new Contact("Swapnil","Jadhav","Matunga",400016,76527,"swapnil@gmail.com");
-        list.add(c1);
-        System.out.println(list);
-        
-        for (Contact contact:list) {
-            if (contact.getFirstName().equals("Sanket")){
-                contact.setPhoneNumber(7777);
+        a.list.add(c1);
+        System.out.println(a.list);
+
+
+        for (Contact contact: a.list) {
+           if (contact.getFirstName().equals("Sanket")){
+               contact.setPhoneNumber(7777);
+           }
+        }
+        System.out.println(a.list);
+
+
+        for (int i=0;i<a.list.size();i++){
+            if (a.list.get(i).getFirstName().equals("Sanket")){
+                a.list.remove(i);
             }
         }
-        System.out.println(list);
-
-
-
-
+        System.out.println(a.list);
 
     }
 
