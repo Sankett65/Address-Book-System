@@ -72,7 +72,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "AddressBook{Contact:-" +
                 "firstName='" + firstName + '\'' +
                 ", LastName='" + LastName + '\'' +
                 ", address='" + address + '\'' +
@@ -98,7 +98,8 @@ class AdressBook{
         AdressBook a = new AdressBook();
        Contact c = new Contact("Sanket","Jadhav","Dadar",400028,35426,"sanket@gmail.com");
          a.list.add(c);
-
+        Contact c1 = new Contact("Swapnil","Jadhav","Matunga",400016,76527,"swapnil@gmail.com");
+        a.list.add(c1);
         System.out.println(a.list);
 
 
