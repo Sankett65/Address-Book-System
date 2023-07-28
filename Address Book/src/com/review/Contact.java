@@ -93,6 +93,15 @@ class AdressBook{
         this.list = list;
     }
 
+    public void edit(String name,int phoneNo){
+        for (Contact contact:list) {
+            if (contact.getFirstName().equals(name)){
+                contact.setPhoneNumber(phoneNo);
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         System.out.println("Welcome to the Adress Book System.\n");
         AdressBook a = new AdressBook();
@@ -101,14 +110,10 @@ class AdressBook{
         Contact c1 = new Contact("Swapnil","Jadhav","Matunga",400016,76527,"swapnil@gmail.com");
         a.list.add(c1);
         System.out.println(a.list);
-
-
-        for (Contact contact: a.list) {
-           if (contact.getFirstName().equals("Sanket")){
-               contact.setPhoneNumber(7777);
-           }
-        }
+        
+       a.edit("Sanket",5555);
         System.out.println(a.list);
+
     }
 
 }
