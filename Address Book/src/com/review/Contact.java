@@ -1,6 +1,7 @@
 package com.review;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Contact {
 //    first and last names, address,
@@ -20,6 +21,9 @@ public class Contact {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
+    }
+
+    public Contact() {
     }
 
     public String getFirstName() {
@@ -81,26 +85,29 @@ public class Contact {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+
 }
 
-class AdressBook{
-    ArrayList<Contact> list = new ArrayList<>();
-    public void addContact(Contact contact){
-        list.add(contact);
-    }
-
-    public void setList(ArrayList<Contact> list) {
-        this.list = list;
-    }
-
+class AdressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to the Adress Book System.\n");
-        AdressBook a = new AdressBook();
+        ArrayList<Contact> list = new ArrayList<>();
        Contact c = new Contact("Sanket","Jadhav","Dadar",400028,35426,"sanket@gmail.com");
-         a.list.add(c);
+        list.add(c);
         Contact c1 = new Contact("Swapnil","Jadhav","Matunga",400016,76527,"swapnil@gmail.com");
-        a.list.add(c1);
-        System.out.println(a.list);
+        list.add(c1);
+        System.out.println(list);
+        
+        for (Contact contact:list) {
+            if (contact.getFirstName().equals("Sanket")){
+                contact.setPhoneNumber(7777);
+            }
+        }
+        System.out.println(list);
+
+
+
 
 
     }
